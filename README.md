@@ -1,6 +1,6 @@
 # Ready to use Dustation web monitoring & WiFi management system
 
-ระบบ Web Monitoring & WiFi management สำหรับ Dustation Dev Kit V.2 ใช้ในการแสดงผลค่าต่างที่วัดได้ และการตั้งค่าต่างๆ ผ่านเว็บบราวเซอร์
+ระบบ Web Monitoring & WiFi management สำหรับ Dustation Dev Kit V.2 ใช้ในการแสดงผลค่าต่างๆที่วัดได้ และการตั้งค่าต่างๆ ผ่านเว็บบราวเซอร์
 
 ![Web Monitoring](https://github.com/imiconsystem/ready2u-dustation-web-man/blob/b7508535267f3c21c48bd1a8b9a6dfdcc2f51ac2/images/143814-1.jpg)
 
