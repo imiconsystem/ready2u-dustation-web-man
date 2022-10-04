@@ -68,6 +68,3 @@ SET MODE ประกอบไปด้วย
 
 - กด Switch ค้างไว้… แล้ว กด EN หรือ reset บน ESP32 1 ครั้ง จากนั้นรอ 10 วินาที จึงปล่อยปุ่ม Switch บน OLED Display จะแสดงผล Factory Resettings
 - จากนั้นกด กด EN หรือ reset บน ESP32 อีก 1 ครั้ง โปรแกรมจะเข้าสู่ค่าเริ่มต้น
-
-## License
-This libary is licensed under the MIT Licence.
