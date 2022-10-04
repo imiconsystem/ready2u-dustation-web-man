@@ -10,13 +10,13 @@ void resetbuttonSetup() {
 
   button.setDebounceTime(50);
 
-  for (int i = 1; i <= 10; i++) {
+  for (int i = 1; i <= 6; i++) {
     button.loop();  
     if (button.getState() == 1) CountPress++;
     delay(1000);
   }
 
-  if (CountPress == 5) {
+  if (CountPress == 6) {
     SETMODE = 2;  // RESET
   } else if (CountPress > 0) {
     SETMODE = 1;  // SET
