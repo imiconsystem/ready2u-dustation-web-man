@@ -19,6 +19,7 @@
 
 ## Compatible Hardware
 บอร์ดพัฒนา Dustation Dev Kit V.2 [สั่งซื้อ]
+![Dustation Dev Kit V.2](https://github.com/imiconsystem/ready2u-dustation-web-man/blob/694120d0fe497af0d9d4f870288c20bf4b264d62/images/20220909_152200.jpg)
 
 ## Hardware setup
 - บนบอร์ด Dustation Dev Kit V.2 เลื่อน dip switch ของ SET ไปที่ ON (Set mode)
