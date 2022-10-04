@@ -43,7 +43,7 @@
 ## Flash โปรแกรมลง ESP32
 1. เข้าเมนู Tools เลือกบอร์ด DOIT ESP32 DEVKIT V1
 2. เลือกพอร์ต
-3. ดาวน์โหลดโค๊ดโปรแกรม ready2u-dustation-web-man-main.zip
+3. ดาวน์โหลดโค๊ดโปรแกรม https://github.com/imiconsystem/ready2u-dustation-web-man/releases
 4. เปิดไฟล์ readyu2-dustation-web-man.ino
 5. อัพโหลดไฟล์
 
