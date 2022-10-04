@@ -23,6 +23,7 @@
 
 ## Hardware setup
 - บนบอร์ด Dustation Dev Kit V.2 เลื่อน dip switch ของ SET ไปที่ ON (Set mode)
+![Set mode](https://github.com/imiconsystem/ready2u-dustation-web-man/blob/a418ae1c30acb8eda29e7d59d3fbe9fe521b0a15/images/pms-set.jpg)
 - ติดตั้งอุปกรณ์ทั้งหมดให้ถูกต้องครบถ้วนได้แก่
 1. ESP32
 2. PMS7003
