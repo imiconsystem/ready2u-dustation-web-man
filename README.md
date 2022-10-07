@@ -4,7 +4,7 @@
 
 ![Web Monitoring](https://github.com/imiconsystem/ready2u-dustation-web-man/blob/b7508535267f3c21c48bd1a8b9a6dfdcc2f51ac2/images/143814-1.jpg)
 
-![On running]()
+![On running](https://github.com/imiconsystem/ready2u-dustation-web-man/blob/8295b6e236ca6e23bd5ed517b748eebe14d9c49d/images/running.gif)
 
 
 ## ฟีเจอร์การแสดงผล
