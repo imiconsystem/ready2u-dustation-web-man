@@ -30,8 +30,8 @@ String logString;
 
 void setup() {
 
-  //Serial.begin(115200);  // For debug
-
+  Serial.begin(115200);  // For debug
+  Serial.println("ESP start.");
   serialSetup();
   pmsSetup();
   oledSetup();
@@ -83,9 +83,9 @@ void controlRelay() {
     relayLo(R1);
   }
 }
-bool pmsReadDone;
-int pmsWaitPeriod = 60000;  //Going to sleep for 60 seconds.
-unsigned long pmsNextRead = 0;
+
+
+
 void loop() {
 
 
@@ -94,13 +94,13 @@ void loop() {
     webserverLoop();
     clientLoop();
 
-    if (millis() > pmsNextRead) {
-      while (!pmsReadDone) {
+    //if (millis() > pmsNextRead) {
+    //  while (!pmsReadDone) {
         pmsLoop();
-      }
-      pmsReadDone = false;
-      pmsNextRead = millis() + pmsWaitPeriod;
-    }
+    //  }
+    //  pmsReadDone = false;
+    //  pmsNextRead = millis() + pmsWaitPeriod;
+    //}
 
     dhtLoop();
     controlRelay();

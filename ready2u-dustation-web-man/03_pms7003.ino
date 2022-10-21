@@ -45,54 +45,92 @@ void SetPm25Level(int aqi) {
 void pmsSetup() {
 
   pinMode(set, OUTPUT);
-  pmsReadDone = false;
+  //pmsReadDone = false;
 }
+
+
+int pmsSleepPeriod = 5;
+int pmsStablePeriod = 0;
+bool pmsIsWakeup = false;
+void pmsWakeup() {
+  if (!pmsIsWakeup) {
+    Serial.println("Waking up...");
+    digitalWrite(set, HIGH);  //Setting hardware Waking up
+    pmsIsWakeup = true;
+    pmsStablePeriod = 10;
+  }
+}
+
+void pmsSleep() {
+  Serial.println("Going to sleep.");
+  digitalWrite(set, LOW);  //Setting hardware sleep
+  pmsSleepPeriod = 5;
+  pmsIsWakeup = false;
+}
+
+
+bool pmsWaitSleep() {
+  if (pmsSleepPeriod > 0) {
+    Serial.print("PMS is sleep for ");
+    Serial.println(pmsSleepPeriod);
+    pmsSleepPeriod--;
+    return true;
+  }
+  return false;
+}
+
+bool pmsWaitStable() {
+  if (pmsStablePeriod > 0) {
+    Serial.print("Wait for stable readings ");
+    Serial.println(pmsStablePeriod);
+    pmsStablePeriod--;
+    return true;
+  }
+  return false;
+}
+
 
 void pmsLoop() {
 
-  Serial.println("Waking up, wait 30 seconds for stable readings...");
-  digitalWrite(set, HIGH);  //Setting hardware Waking up
+  if (!pmsWaitSleep()) {
+    pmsWakeup();
 
-  delay(30000);
+    if (!pmsWaitStable()) {
+      Serial.println("Send read request...");
+      pms.requestRead();
+      Serial.println("Wait max. 1 second for read...");
+      if (pms.readUntil(data)) {
 
-  Serial.println("Send read request...");
-  pms.requestRead();
-  Serial.println("Wait max. 1 second for read...");
-  if (pms.readUntil(data)) {
+        PM1 = data.PM_AE_UG_1_0;
+        PM2 = data.PM_AE_UG_2_5;
+        PM10 = data.PM_AE_UG_10_0;
 
-    PM1 = data.PM_AE_UG_1_0;
-    PM2 = data.PM_AE_UG_2_5;
-    PM10 = data.PM_AE_UG_10_0;
+        AQI = calAqi(PM2);
+        SetPm25Level(AQI);
 
-    AQI = calAqi(PM2);
-    SetPm25Level(AQI);
+        Serial.print("AQI: ");
+        Serial.println(pm25lev.word);
 
-    Serial.print("AQI: ");
-    Serial.println(pm25lev.word);
+        String result = "";
+        result.concat("PM1.0: ");
+        result.concat(PM1);
+        Serial.print("PM 1.0 (ug/m3): ");
+        Serial.println(data.PM_AE_UG_1_0);
 
-    String result = "";
-    result.concat("PM1.0: ");
-    result.concat(PM1);
-    Serial.print("PM 1.0 (ug/m3): ");
-    Serial.println(data.PM_AE_UG_1_0);
+        result.concat("\nPM2.5: ");
+        result.concat(PM2);
+        Serial.print("PM 2.5 (ug/m3): ");
+        Serial.println(data.PM_AE_UG_2_5);
 
-    result.concat("\nPM2.5: ");
-    result.concat(PM2);
-    Serial.print("PM 2.5 (ug/m3): ");
-    Serial.println(data.PM_AE_UG_2_5);
+        result.concat("\nPM10:  ");
+        result.concat(PM10);
+        Serial.print("PM 10.0 (ug/m3): ");
+        Serial.println(data.PM_AE_UG_10_0);
+        pmsSleep();
 
-    result.concat("\nPM10:  ");
-    result.concat(PM10);
-    Serial.print("PM 10.0 (ug/m3): ");
-    Serial.println(data.PM_AE_UG_10_0);
-
-  } else {
-    Serial.println("No data.");
-
+      } else {
+        Serial.println("No data.");
+      }
+    }
   }
-  Serial.println("Going to sleep for 60 seconds.");
-  digitalWrite(set, LOW);  //Setting hardware sleep
-
-  pmsReadDone = true;
-
 }

@@ -102,7 +102,8 @@ void webserverLoop() {
 void clientLoop() {
 
   server.handleClient();
-  delay(2);  // allow the cpu to switch to other tasks
+  // Serial.println("Client loop");
+  delay(10);  // allow the cpu to switch to other tasks
 }
 
 void handleRoot() {
@@ -161,7 +162,7 @@ void handleRoot() {
 <head>\
 <meta charset=\"UTF-8\" />\
 <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\
-<meta http-equiv='refresh' content='5' />\
+<meta http-equiv='refresh' content='10' />\
 <style>.max-val span,h3{text-align:center}#pm25-num sup,body{font-family:Arial,Helvetica,sans-serif}html{width:100vw;height:100vh}body{margin:0 30px;background:#001213;background:linear-gradient(126deg,#001213 0,#005157 100%%);color:#eee}.val{font-size:30px;display:block;margin-bottom:10px}.pm-other .val{text-align:right}.max-val span{display:inline-block;background-color:#ffffff21;border-radius:5px;padding:5px;font-size:10px;margin:3px;}.alert{background-color:#00be8e!important}h1{font-size:16px;margin:0 0 3px;padding:0;color:#89ffae}h3{font-size:22px;margin-top:0}*{box-sizing:border-box}.flex-container{display:flex;flex-direction:row;text-align:left}.flex-item-left{padding:10px 20px 10px 0;flex:50%%;border-right:1px solid #ffffff52;position:relative}.flex-item-right{padding:10px 0 10px 20px;flex:50%%}.flex-item-right sup{font-size:15px}#pm25-num{font-size:100px;line-height:100px}#pm25-num sup{font-size:20px}.emoticon{font-size:10rem;filter:grayscale(1);opacity:.2;position:absolute;right:0}@media (max-width:660px){.emoticon{top:0}.flex-container{flex-direction:column}.flex-item-left{padding:10px 0;border-right:0;border-bottom:1px solid #ffffff52}.flex-item-right{padding:10px 0}}.container{max-width:800px;margin:auto}</style>\
 </head>\
 <body>\
