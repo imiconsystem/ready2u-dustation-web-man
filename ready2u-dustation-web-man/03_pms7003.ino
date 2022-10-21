@@ -49,7 +49,7 @@ void pmsSetup() {
 }
 
 
-int pmsSleepPeriod = 5;
+int pmsSleepPeriod = 0; // first start
 int pmsStablePeriod = 0;
 bool pmsIsWakeup = false;
 void pmsWakeup() {
@@ -57,14 +57,14 @@ void pmsWakeup() {
     Serial.println("Waking up...");
     digitalWrite(set, HIGH);  //Setting hardware Waking up
     pmsIsWakeup = true;
-    pmsStablePeriod = 10;
+    pmsStablePeriod = 15;
   }
 }
 
 void pmsSleep() {
   Serial.println("Going to sleep.");
   digitalWrite(set, LOW);  //Setting hardware sleep
-  pmsSleepPeriod = 5;
+  pmsSleepPeriod = 120;
   pmsIsWakeup = false;
 }
 
