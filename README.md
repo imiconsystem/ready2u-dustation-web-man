@@ -1,9 +1,8 @@
 # Ready to use Dustation web monitoring & WiFi management system
 
-ระบบ Web Monitoring & WiFi management สำหรับ Dustation Dev Kit V.2 ใช้ในการแสดงผลค่าต่างที่วัดได้ และการตั้งค่าต่างๆ ผ่านเว็บบราวเซอร์
+ระบบ Web Monitoring & WiFi management สำหรับ Dustation Dev Kit V.2 ใช้ในการแสดงผลค่าต่างๆที่วัดได้ และการตั้งค่าต่างๆ ผ่านเว็บบราวเซอร์
 
 ![Web Monitoring](https://github.com/imiconsystem/ready2u-dustation-web-man/blob/b7508535267f3c21c48bd1a8b9a6dfdcc2f51ac2/images/143814-1.jpg)
-
 
 ## ฟีเจอร์การแสดงผล
 - แสดงผลค่าฝุ่นละอองขนาดเล็ก PM1.0 , PM2.5 และ PM10
@@ -50,6 +49,7 @@
 4. เปิดไฟล์ readyu2-dustation-web-man.ino
 5. อัพโหลดไฟล์
 
+![On running](https://github.com/imiconsystem/ready2u-dustation-web-man/blob/8295b6e236ca6e23bd5ed517b748eebe14d9c49d/images/running.gif)
 
 ## การใช้งานตั้งค่า 'SET MODE' 
 - กด Switch ค้างไว้… แล้ว กด EN หรือ reset บน ESP32 1 ครั้ง จากนั้นรอ 2 วินาที จึงปล่อยปุ่ม Switch บน OLED Display จะแสดงผล IP address , SSID และ Password สำหรับการเข้าถึงการตั้งค่าผ่าน WiFi
