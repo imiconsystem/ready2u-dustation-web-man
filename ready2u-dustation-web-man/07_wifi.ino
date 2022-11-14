@@ -90,7 +90,7 @@ void webserverLoop() {
 
   if (WiFi.status() == WL_CONNECTED) {
     WiFiRSSI = WiFi.RSSI();
-    myIP = WiFi.localIP().toString();
+    localIP = WiFi.localIP().toString();
 
     Serial.print("Connected to ");
     Serial.println(storageGetString("WiFissid"));
@@ -108,7 +108,7 @@ void clientLoop() {
 
 void handleRoot() {
 
-  char html[3500];
+  char html[4000];
   int sec = millis() / 1000;
   int min = sec / 60;
   int hr = min / 60;
@@ -156,7 +156,7 @@ void handleRoot() {
     icon = "&#128512;";
   }
 
-  snprintf(html, 3500,
+  snprintf(html, 4000,
            "<!DOCTYPE html>\
 <html>\
 <head>\
@@ -219,12 +219,12 @@ void handleRoot() {
 </div>\
 </div>\
 </div>\
-<p style=\"text-align: center;\"><b>IP:</b> %s - <b>Domain:</b> %s.local</p>\
+<p style=\"text-align: center;\"><b>Domain:</b> %s.local</p>\
 </div>\
 </body>\
 </html>",
 
-           storageGetString("webTitle"), icon, PM2, AQI, pm25lev.word, PM1, PM10, TEMP, HUMI, relayText, maxTempClass, maxTemp, maxHumiClass, maxHumi, maxPM1Class, maxPM1, maxPM2Class, maxPM2, maxPM10Class, maxPM10, myIP, storageGetString("deviceName"));
+           storageGetString("webTitle"), icon, PM2, AQI, pm25lev.word, PM1, PM10, TEMP, HUMI, relayText, maxTempClass, maxTemp, maxHumiClass, maxHumi, maxPM1Class, maxPM1, maxPM2Class, maxPM2, maxPM10Class, maxPM10, storageGetString("deviceName"));
   server.send(200, "text/html", html);
 }
 

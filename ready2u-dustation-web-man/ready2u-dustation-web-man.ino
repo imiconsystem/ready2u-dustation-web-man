@@ -11,7 +11,7 @@ String WiFissid = "";
 String WiFipassword = "";
 
 String WiFiRSSI;
-String myIP;
+String localIP;
 String webTitle = "DustStion1";
 String device_name = "dst2";
 
@@ -56,7 +56,7 @@ void setup() {
     oledLogLoop();
 
   } else if (SETMODE == 2) {  // RESET FACTORY
-    logString = "Factory reseting..";
+    logString = "Wait 10 seconds then push EN(reset) button.";
     oledLogLoop();
     storageClear();
     ESP.restart();

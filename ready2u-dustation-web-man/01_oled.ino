@@ -46,7 +46,7 @@ void oledDrawPage3() {
     u8g2.setFont(u8g2_font_squeezed_b7_tr);
     u8g2.drawStr(15, 8, storageGetString("WiFissid").c_str());
     u8g2.drawStr(15, 17, WiFiRSSI.c_str());
-    u8g2.drawStr(50, 17, myIP.c_str());
+    u8g2.drawStr(50, 17, localIP.c_str());
     u8g2.drawStr(50, 26, storageGetString("deviceName").c_str());
   
 }

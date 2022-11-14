@@ -48,6 +48,7 @@
 3. ดาวน์โหลดโค๊ดโปรแกรม https://github.com/imiconsystem/ready2u-dustation-web-man/releases
 4. เปิดไฟล์ readyu2-dustation-web-man.ino
 5. อัพโหลดไฟล์
+6. กดปุ่ม EN บน ESP32 เพื่อเริ่มต้นใช้งาน
 
 ![On running](https://github.com/imiconsystem/ready2u-dustation-web-man/blob/8295b6e236ca6e23bd5ed517b748eebe14d9c49d/images/running.gif)
 
