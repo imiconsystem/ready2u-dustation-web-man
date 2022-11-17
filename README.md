@@ -2,7 +2,7 @@
 
 ระบบ Web Monitoring & WiFi management สำหรับ Dustation Dev Kit V.2 ใช้ในการแสดงผลค่าต่างๆที่วัดได้ และการตั้งค่าต่างๆ ผ่านเว็บบราวเซอร์
 
-![Web Monitoring](https://github.com/imiconsystem/ready2u-dustation-web-man/blob/b7508535267f3c21c48bd1a8b9a6dfdcc2f51ac2/images/143814-1.jpg)
+![Web Monitoring](https://github.com/imiconsystem/ready2u-dustation-web-man/blob/05ab6494c5ddb51680ab3f0a95cbbac5019feeb9/images/cover.JPG)
 
 ## ฟีเจอร์การแสดงผล
 - แสดงผลค่าฝุ่นละอองขนาดเล็ก PM1.0 , PM2.5 และ PM10
