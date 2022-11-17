@@ -43,17 +43,24 @@
 4. ezButton by ArduinoGetStarted.com Version 1.0.4 https://arduinogetstarted.com/tutorials/arduino-button-library
 
 ## Flash โปรแกรมลง ESP32
-1. เข้าเมนู Tools เลือกบอร์ด DOIT ESP32 DEVKIT V1
-2. เลือกพอร์ต
-3. ดาวน์โหลดโค๊ดโปรแกรม https://github.com/imiconsystem/ready2u-dustation-web-man/releases
-4. เปิดไฟล์ readyu2-dustation-web-man.ino
-5. อัพโหลดไฟล์
-6. กดปุ่ม EN บน ESP32 เพื่อเริ่มต้นใช้งาน
+1. เปิดโปรแกรม Arduino IDE
+2. เข้าเมนู Tools เลือกบอร์ด DOIT ESP32 DEVKIT V1
+3. เลือกพอร์ต
+4. ดาวน์โหลดโค๊ดโปรแกรม https://github.com/imiconsystem/ready2u-dustation-web-man/releases
+5. เปิดไฟล์ readyu2-dustation-web-man.ino
+6. อัพโหลดไฟล์
+7. กดปุ่ม EN บน ESP32 เพื่อเริ่มต้นใช้งาน
+8. รอสักครู่เพื่อให้ระบบเชื่อมต่อเข้ากับ WiFi จากนั้นสามารถเข้าสู่หน้า Web monitoring ผ่านเว็บบราวเซอร์ด้วย URL http://dst.local
+
+## **หมายเหตุ
+
+ระบบปฏิบัติการของท่านต้องติดตั้ง mDNS ถึงจะสามารถเข้าดูหน้าเว็บด้วยโดเมนเนมได้ ซึ่งระบบปฏิบัติการส่วนมากจะติดตั้งให้โดยอัตโนมัติแล้ว  [>> เรียนรู้เพิ่มเติม](https://espressif.github.io/esp-protocols/mdns/en/index.html)
 
 ![On running](https://github.com/imiconsystem/ready2u-dustation-web-man/blob/8295b6e236ca6e23bd5ed517b748eebe14d9c49d/images/running.gif)
 
 ## การใช้งานตั้งค่า 'SET MODE' 
 - กด Switch ค้างไว้… แล้ว กด EN หรือ reset บน ESP32 1 ครั้ง จากนั้นรอ 2 วินาที จึงปล่อยปุ่ม Switch บน OLED Display จะแสดงผล IP address , SSID และ Password สำหรับการเข้าถึงการตั้งค่าผ่าน WiFi
+- สามารถเข้าสู่หน้าจอตั้งค่าผ่านเว็บบราวเซอร์ด้วย URL http://192.168.4.1
 
 SET MODE ประกอบไปด้วย
 

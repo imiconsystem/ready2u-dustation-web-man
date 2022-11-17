@@ -13,7 +13,7 @@ String WiFipassword = "";
 String WiFiRSSI;
 String localIP;
 String webTitle = "DustStion1";
-String device_name = "dst2";
+String device_name = "dst";
 
 int32_t maxTemp, maxHumi, maxPM1, maxPM2, maxPM10;
 
