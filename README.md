@@ -49,12 +49,6 @@
 4. ดาวน์โหลดโค๊ดโปรแกรม https://github.com/imiconsystem/ready2u-dustation-web-man/releases
 5. เปิดไฟล์ readyu2-dustation-web-man.ino
 6. อัพโหลดไฟล์
-7. กดปุ่ม EN บน ESP32 เพื่อเริ่มต้นใช้งาน
-8. รอสักครู่เพื่อให้ระบบเชื่อมต่อเข้ากับ WiFi จากนั้นสามารถเข้าสู่หน้า Web monitoring ผ่านเว็บบราวเซอร์ด้วย URL http://dst.local
-
-## **หมายเหตุ
-
-ระบบปฏิบัติการของท่านต้องติดตั้ง mDNS service ถึงจะสามารถเข้าดูหน้าเว็บด้วยโดเมนเนมได้ ซึ่งระบบปฏิบัติการส่วนมากจะติดตั้งให้โดยอัตโนมัติแล้ว  [>> เรียนรู้เพิ่มเติม](https://espressif.github.io/esp-protocols/mdns/en/index.html)
 
 ![On running](https://github.com/imiconsystem/ready2u-dustation-web-man/blob/8295b6e236ca6e23bd5ed517b748eebe14d9c49d/images/running.gif)
 
@@ -79,6 +73,13 @@ SET MODE ประกอบไปด้วย
 
 - กด Switch ค้างไว้… แล้ว กด EN หรือ reset บน ESP32 1 ครั้ง จากนั้นรอ 6 วินาที จึงปล่อยปุ่ม Switch บน OLED Display จะแสดงผล Factory Resettings
 - จากนั้นกด กด EN หรือ reset บน ESP32 อีก 1 ครั้ง โปรแกรมจะเข้าสู่ค่าเริ่มต้น
+
+## เริ่มต้นใช้งาน Web monitoring
+- กดปุ่ม En บน Esp32 เพื่อเริ่มต้นใช้งาน รอสักครู่เพื่อให้ระบบเชื่อมต่อเข้ากับ WiFi จากนั้นสามารถเข้าสู่หน้า Web monitoring ผ่านเว็บบราวเซอร์ด้วย URL http://dst.local
+
+## **หมายเหตุ
+
+ระบบปฏิบัติการของท่านต้องติดตั้ง mDNS service ถึงจะสามารถเข้าดูหน้าเว็บด้วยโดเมนเนมได้ ซึ่งระบบปฏิบัติการส่วนมากจะติดตั้งให้โดยอัตโนมัติแล้ว  [>> เรียนรู้เพิ่มเติม](https://espressif.github.io/esp-protocols/mdns/en/index.html)
 
 ## TODOs
 - รองรับการตั้งค่า URL สำหรับเชื่อมต่อ MQTT server
