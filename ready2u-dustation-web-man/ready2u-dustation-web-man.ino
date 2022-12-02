@@ -64,15 +64,12 @@ void myTimerEvent()
   
  
 }
-void blynk_virtualWrite(int vp, int val){
-  Blynk.virtualWrite(vp, val);
-}
 
 void setup() {
 
   Serial.begin(115200);  // For debug
   Serial.println("ESP start.");
-  
+
   Blynk.begin(auth, storageGetString("WiFissid").c_str(), storageGetString("WiFipassword").c_str());
   timer.setInterval(1000L, myTimerEvent);
 
@@ -107,7 +104,7 @@ void setup() {
     ESP.restart();
   } else {
     // RUN
-    //webserverSetup();
+    webserverSetup();
     logString = "System starting..";
     oledLogLoop();
   }
