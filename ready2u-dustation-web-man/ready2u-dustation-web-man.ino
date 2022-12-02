@@ -69,15 +69,15 @@ void setup() {
 }
 
 void controlRelay() {
-  if (TEMP > maxTemp) {
+  if (maxTemp > 0 && TEMP > maxTemp) {
     relayHi(R1);
-  } else if (HUMI > maxHumi) {
+  } else if (maxHumi > 0 && HUMI > maxHumi) {
     relayHi(R1);
-  } else if (PM1 > maxPM1) {
+  } else if (maxPM1 > 0 && PM1 > maxPM1) {
     relayHi(R1);
-  } else if (PM2 > maxPM2) {
+  } else if (maxPM2 > 0 && PM2 > maxPM2) {
     relayHi(R1);
-  } else if (PM10 > maxPM10) {
+  } else if (maxPM10 > 0 && PM10 > maxPM10) {
     relayHi(R1);
   } else {
     relayLo(R1);

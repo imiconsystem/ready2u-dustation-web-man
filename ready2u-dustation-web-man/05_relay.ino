@@ -12,3 +12,6 @@ void relayHi(int relay){
 void relayLo(int relay){
     digitalWrite(relay, LOW);
 }
+bool relayIsOn(int relay){
+    return digitalRead(relay) == HIGH;
+}

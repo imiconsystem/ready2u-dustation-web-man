@@ -114,31 +114,31 @@ void handleRoot() {
   int hr = min / 60;
   String relayText, maxTempClass, maxHumiClass, maxPM1Class, maxPM2Class, maxPM10Class, icon;
   relayText = "OFF";
-  if (TEMP > maxTemp) {
+  if (relayIsOn(R1) && TEMP > maxTemp) {
     maxTempClass = "alert";
     relayText = "ON";
   } else
     maxTempClass = "normal";
 
-  if (HUMI > maxHumi) {
+  if (relayIsOn(R1) && HUMI > maxHumi) {
     maxHumiClass = "alert";
     relayText = "ON";
   } else
     maxHumiClass = "normal";
 
-  if (PM1 > maxPM1) {
+  if (relayIsOn(R1) && PM1 > maxPM1) {
     maxPM1Class = "alert";
     relayText = "ON";
   } else
     maxPM1Class = "normal";
 
-  if (PM2 > maxPM2) {
+  if (relayIsOn(R1) && PM2 > maxPM2) {
     maxPM2Class = "alert";
     relayText = "ON";
   } else
     maxPM2Class = "normal";
 
-  if (PM10 > maxPM10) {
+  if (relayIsOn(R1) && PM10 > maxPM10) {
     maxPM10Class = "alert";
     relayText = "ON";
   } else
