@@ -30,7 +30,7 @@ String logString;
 
 void setup() {
 
-  Serial.begin(115200);  // For debug
+  Serial.begin(9600);  // For debug
   Serial.println("ESP start.");
   serialSetup();
   pmsSetup();

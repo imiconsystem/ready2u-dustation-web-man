@@ -1,7 +1,7 @@
 #include "PMS.h"
 PMS pms(Serial2);
 PMS::DATA data;
-int set = 18;
+//int set = 18;
 
 const int STANDARD_AQI[5] = { 0, 25, 50, 100, 200 };
 const int STANDARD_AQI_PM2[5] = { 0, 25, 37, 50, 90 };
@@ -43,8 +43,9 @@ void SetPm25Level(int aqi) {
 }
 
 void pmsSetup() {
-
-  pinMode(set, OUTPUT);
+  pms.passiveMode();    // Switch to passive mode
+  //pinMode(set, OUTPUT);
+  
   //pmsReadDone = false;
 }
 
@@ -55,7 +56,8 @@ bool pmsIsWakeup = false;
 void pmsWakeup() {
   if (!pmsIsWakeup) {
     Serial.println("Waking up...");
-    digitalWrite(set, HIGH);  //Setting hardware Waking up
+    //digitalWrite(set, HIGH);  //Setting hardware Waking up
+    pms.wakeUp();  //software sleep
     pmsIsWakeup = true;
     pmsStablePeriod = 15;
   }
@@ -63,7 +65,8 @@ void pmsWakeup() {
 
 void pmsSleep() {
   Serial.println("Going to sleep.");
-  digitalWrite(set, LOW);  //Setting hardware sleep
+  //digitalWrite(set, LOW);  //Setting hardware sleep
+  pms.sleep();  //software sleep
   pmsSleepPeriod = 120;
   pmsIsWakeup = false;
 }
