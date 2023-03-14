@@ -77,7 +77,7 @@ void storagePutChar(const char *key, int8_t val) {
 String storageGetString(const char *key) {
   String result;
   preferences.begin(prekey, false);
-  result = preferences.getString(key, "").c_str();
+  result = preferences.getString(key, "test123");
   preferences.end();
   return result;
 }

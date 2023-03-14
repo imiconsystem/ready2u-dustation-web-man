@@ -1,7 +1,5 @@
 #define R1 23
 
-
-
 String APssid = "R2Devkit";
 String APpassword = "dddddddd";
 
