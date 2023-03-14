@@ -111,33 +111,32 @@ void handleRoot() {
   char html[4000];
   String pm25word,relayText, maxTempClass, maxHumiClass, maxPM1Class, maxPM2Class, maxPM10Class, icon;
   pm25word = pm25lev.word.c_str();
-
   relayText = "OFF";
-  if (TEMP > maxTemp) {
+  if (relayIsOn(R1) && TEMP > maxTemp) {
     maxTempClass = "alert";
     relayText = "ON";
   } else
     maxTempClass = "normal";
 
-  if (HUMI > maxHumi) {
+  if (relayIsOn(R1) && HUMI > maxHumi) {
     maxHumiClass = "alert";
     relayText = "ON";
   } else
     maxHumiClass = "normal";
 
-  if (PM1 > maxPM1) {
+  if (relayIsOn(R1) && PM1 > maxPM1) {
     maxPM1Class = "alert";
     relayText = "ON";
   } else
     maxPM1Class = "normal";
 
-  if (PM2 > maxPM2) {
+  if (relayIsOn(R1) && PM2 > maxPM2) {
     maxPM2Class = "alert";
     relayText = "ON";
   } else
     maxPM2Class = "normal";
 
-  if (PM10 > maxPM10) {
+  if (relayIsOn(R1) && PM10 > maxPM10) {
     maxPM10Class = "alert";
     relayText = "ON";
   } else
@@ -224,6 +223,7 @@ void handleRoot() {
 </div>\
 </body>\
 </html>",
+
            storageGetString("webTitle").c_str(), icon.c_str(), PM2, AQI, pm25word.c_str(), PM1, PM10, TEMP, HUMI, relayText.c_str(), maxTempClass.c_str(), maxTemp, maxHumiClass.c_str(), maxHumi, maxPM1Class.c_str(), maxPM1, maxPM2Class.c_str(), maxPM2, maxPM10Class.c_str(), maxPM10, storageGetString("deviceName").c_str());
   server.send(200, "text/html", html);
 }
@@ -247,7 +247,6 @@ void handleNotFound() {
 
 void configForm() {
   char html[3000];
-
   snprintf(html, 3000,
 
            "<html>\
@@ -314,17 +313,13 @@ void configForm() {
 
            storageGetString("WiFissid").c_str(), storageGetString("WiFipassword").c_str(), maxTemp, maxHumi, maxPM1, maxPM2, maxPM10, storageGetString("webTitle").c_str(), storageGetString("deviceName").c_str(),storageGetString("APssid").c_str(), storageGetString("APpassword").c_str());
   server.send(200, "text/html", html);
-
-  //storageGetString("WiFissid"), storageGetString("WiFipassword"), maxTemp, maxHumi, maxPM1, maxPM2, maxPM10, storageGetString("webTitle"), storageGetString("deviceName"),storageGetString("APssid"), storageGetString("APpassword"));
-  server.send(200, "text/html", html);
 }
 
 void saveConfig() {
 
   char temp, humi, pm1, pm2, pm10;
-
   temp = humi = pm1 = pm2 = pm10 = 0;
-
+  
   String message = "<h3>Data saved.<br></h3><hr>";
   String WIFIssid, WIFIpassword, APssid, APpassword, _webTitle, _deviceName;
   // message += (server.method() == HTTP_GET) ? "GET" : "POST";
