@@ -109,10 +109,8 @@ void clientLoop() {
 void handleRoot() {
 
   char html[4000];
-  int sec = millis() / 1000;
-  int min = sec / 60;
-  int hr = min / 60;
-  String relayText, maxTempClass, maxHumiClass, maxPM1Class, maxPM2Class, maxPM10Class, icon;
+  String pm25word,relayText, maxTempClass, maxHumiClass, maxPM1Class, maxPM2Class, maxPM10Class, icon;
+  pm25word = pm25lev.word.c_str();
   relayText = "OFF";
   if (relayIsOn(R1) && TEMP > maxTemp) {
     maxTempClass = "alert";
@@ -154,6 +152,8 @@ void handleRoot() {
     icon = "&#128578;";
   } else if (pm25lev.icon == " ") {
     icon = "&#128512;";
+  }else{
+    icon = " ";
   }
 
   snprintf(html, 4000,
@@ -224,7 +224,7 @@ void handleRoot() {
 </body>\
 </html>",
 
-           storageGetString("webTitle"), icon, PM2, AQI, pm25lev.word, PM1, PM10, TEMP, HUMI, relayText, maxTempClass, maxTemp, maxHumiClass, maxHumi, maxPM1Class, maxPM1, maxPM2Class, maxPM2, maxPM10Class, maxPM10, storageGetString("deviceName"));
+           storageGetString("webTitle").c_str(), icon.c_str(), PM2, AQI, pm25word.c_str(), PM1, PM10, TEMP, HUMI, relayText.c_str(), maxTempClass.c_str(), maxTemp, maxHumiClass.c_str(), maxHumi, maxPM1Class.c_str(), maxPM1, maxPM2Class.c_str(), maxPM2, maxPM10Class.c_str(), maxPM10, storageGetString("deviceName").c_str());
   server.send(200, "text/html", html);
 }
 
@@ -311,13 +311,15 @@ void configForm() {
 </body>\
 </html>",
 
-           storageGetString("WiFissid"), storageGetString("WiFipassword"), maxTemp, maxHumi, maxPM1, maxPM2, maxPM10, storageGetString("webTitle"), storageGetString("deviceName"),storageGetString("APssid"), storageGetString("APpassword"));
+           storageGetString("WiFissid").c_str(), storageGetString("WiFipassword").c_str(), maxTemp, maxHumi, maxPM1, maxPM2, maxPM10, storageGetString("webTitle").c_str(), storageGetString("deviceName").c_str(),storageGetString("APssid").c_str(), storageGetString("APpassword").c_str());
   server.send(200, "text/html", html);
 }
 
 void saveConfig() {
 
-  char temp, humi, pm1, pm2, pm10, webserveron;
+  char temp, humi, pm1, pm2, pm10;
+  temp = humi = pm1 = pm2 = pm10 = 0;
+  
   String message = "<h3>Data saved.<br></h3><hr>";
   String WIFIssid, WIFIpassword, APssid, APpassword, _webTitle, _deviceName;
   // message += (server.method() == HTTP_GET) ? "GET" : "POST";
@@ -347,7 +349,8 @@ void saveConfig() {
       _deviceName = server.arg(i);
     }
   }
-  message += "<html><head><meta charset=\"UTF-8\" />\<style>\
+  message += "<html><head><meta charset=\"UTF-8\">\
+  <style>\
    html{width:100%%;height:100%%}body{margin:30px;background:#005157;font-family:Arial,Helvetica,sans-serif;color:#eee}\
 </style></head><body><script>alert('Saving data please wait until device restarted.');</script><br><br></body></html>";
   server.send(200, "text/html", message);
