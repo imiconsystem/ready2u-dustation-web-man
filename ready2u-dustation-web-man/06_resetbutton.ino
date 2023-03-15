@@ -1,6 +1,7 @@
 #include <ezButton.h>
 
-ezButton button(2);
+//ezButton button(2);
+ezButton button(13);
 int btnState;
 
 void resetbuttonLoop() {
