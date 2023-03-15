@@ -112,31 +112,31 @@ void handleRoot() {
   String pm25word,relayText, maxTempClass, maxHumiClass, maxPM1Class, maxPM2Class, maxPM10Class, icon;
   pm25word = pm25lev.word.c_str();
   relayText = "OFF";
-  if (relayIsOn(R1) && TEMP > maxTemp) {
+  if (relayIsOn(R1) && TEMP > maxTemp && maxTemp > 0) {
     maxTempClass = "alert";
     relayText = "ON";
   } else
     maxTempClass = "normal";
 
-  if (relayIsOn(R1) && HUMI > maxHumi) {
+  if (relayIsOn(R1) && HUMI > maxHumi && maxHumi > 0) {
     maxHumiClass = "alert";
     relayText = "ON";
   } else
     maxHumiClass = "normal";
 
-  if (relayIsOn(R1) && PM1 > maxPM1) {
+  if (relayIsOn(R1) && PM1 > maxPM1 && maxPM1 > 0) {
     maxPM1Class = "alert";
     relayText = "ON";
   } else
     maxPM1Class = "normal";
 
-  if (relayIsOn(R1) && PM2 > maxPM2) {
+  if (relayIsOn(R1) && PM2 > maxPM2 && maxPM2 > 0) {
     maxPM2Class = "alert";
     relayText = "ON";
   } else
     maxPM2Class = "normal";
 
-  if (relayIsOn(R1) && PM10 > maxPM10) {
+  if (relayIsOn(R1) && PM10 > maxPM10 && maxPM10 > 0) {
     maxPM10Class = "alert";
     relayText = "ON";
   } else
